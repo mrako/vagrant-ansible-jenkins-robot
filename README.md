@@ -8,6 +8,13 @@ This is the provisioning library for [Jenkins](https://jenkins-ci.org/) and [Rob
 * [Vagrant](https://www.vagrantup.com/downloads.html)
 * [Ansible](http://docs.ansible.com/intro_installation.html)
 
+## Configuration (Ubuntu 14.04)
+
+    wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
+    echo "deb http://download.virtualbox.org/virtualbox/debian trusty contrib" > /etc/apt/sources.list.d/virtualbox.list
+    sudo apt-get update
+    sudo apt-get install virtualbox virtualbox-dkms vagrant
+
 ## Playbooks
 
 * Base
