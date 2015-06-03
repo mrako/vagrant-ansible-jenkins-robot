@@ -2,4 +2,4 @@ jenkins:
   cli_dest: '/opt/jenkins-cli.jar'
   connection_delay: 5
   connection_retries: 60
-  hostname: localhost
+  host: localhost:8080

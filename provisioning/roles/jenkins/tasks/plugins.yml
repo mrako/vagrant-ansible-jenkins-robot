@@ -21,7 +21,7 @@
     mode: 0755
 
 - name: Install Jenkins plugins.
-  command: java -jar {{ jenkins.cli_dest }} -s http://{{ jenkins.hostname }}:8080/ install-plugin {{ item }} creates=/var/lib/jenkins/plugins/{{ item }}.jpi
+  command: java -jar {{ jenkins.cli_dest }} -s http://{{ jenkins.host }}/ install-plugin {{ item }} creates=/var/lib/jenkins/plugins/{{ item }}.jpi
   notify: Restart Jenkins
   with_items:
     - git

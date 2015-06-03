@@ -17,7 +17,7 @@
   service: name=jenkins state=started enabled=yes
 
 - name: Wait for Jenkins to start up before proceeding.
-  shell: curl --head --silent http://{{ jenkins.hostname }}:8080/cli/
+  shell: curl --head --silent http://{{ jenkins.host }}/cli/
   register: result
   until: result.stdout.find("200 OK") != -1
   retries: "{{ jenkins.connection_retries }}"
@@ -26,7 +26,7 @@
 
 - name: Get the jenkins-cli jarfile from the Jenkins server.
   get_url:
-    url: "http://{{ jenkins.hostname }}:8080/jnlpJars/jenkins-cli.jar"
+    url: "http://{{ jenkins.host }}/jnlpJars/jenkins-cli.jar"
     dest: "{{ jenkins.cli_dest }}"
 
 - include: plugins.yml
