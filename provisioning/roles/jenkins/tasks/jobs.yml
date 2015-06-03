@@ -1,0 +1,5 @@
+---
+- name: Create jenkins jobs with xml files
+  sudo: yes
+  shell: "java -jar {{ jenkins.cli_dest }} -s http://localhost:8080 create-job {{ item.name }} < {{ jenkins_dest }}/{{ item.xml_name }}"
+  with_items: jenkins_jobs

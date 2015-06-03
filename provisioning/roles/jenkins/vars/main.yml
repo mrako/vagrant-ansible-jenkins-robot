@@ -1,0 +1,2 @@
+jenkins:
+  cli_dest: '/opt/jenkins/jenkins-cli.jar'

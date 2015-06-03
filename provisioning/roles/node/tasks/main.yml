@@ -1,0 +1,13 @@
+---
+- name: Install curl
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - curl
+
+- name: Add nodejs source to package manager
+  shell: curl -sL https://deb.nodesource.com/setup | sudo bash -
+
+- name: Install nodejs
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - nodejs

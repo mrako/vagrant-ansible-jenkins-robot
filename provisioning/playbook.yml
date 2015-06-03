@@ -1,0 +1,11 @@
+- hosts: all
+  sudo: yes
+  tags: ci
+  roles:
+  - apt
+  - base
+  - java
+  - jenkins
+  - robot
+  - node
+  - phantomjs

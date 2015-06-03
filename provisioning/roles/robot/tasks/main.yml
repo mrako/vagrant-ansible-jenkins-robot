@@ -1,0 +1,12 @@
+---
+- name: Install Python
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - python
+    - python-pip
+
+- name: Install Robot Framework
+  pip: name=robotframework
+
+- name: Install Selenium Library
+  pip: name=robotframework-selenium2library

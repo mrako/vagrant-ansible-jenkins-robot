@@ -1,0 +1,14 @@
+---
+- name: Download Jenkins SSH key
+  shell: wget -q -O - https://jenkins-ci.org/debian/jenkins-ci.org.key | sudo apt-key add -
+
+- name: Add Jenkins to Apt repositories
+  shell: echo deb http://pkg.jenkins-ci.org/debian binary/ > /etc/apt/sources.list.d/jenkins.list
+
+- name: Update apt package cache
+  action: apt update_cache=yes
+
+- name: Install Jenkins
+  apt: pkg={{ item }} state=latest
+  with_items:
+    - jenkins
