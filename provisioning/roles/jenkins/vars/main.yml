@@ -1,5 +1,13 @@
 jenkins:
-  cli_dest: '/opt/jenkins-cli.jar'
+  cli_home: /opt/jenkins
+  cli_dest: /opt/jenkins/jenkins-cli.jar
   connection_delay: 5
   connection_retries: 60
   host: localhost:8080
+  plugins:
+    - git
+    - build-monitor-plugin
+    - robot
+  example_job:
+    name: robot-framework-example
+    xmlfile: job-example.xml

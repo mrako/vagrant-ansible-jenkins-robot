@@ -24,9 +24,14 @@
   delay: "{{ jenkins.connection_delay }}"
   changed_when: false
 
+- name: Create folder for Jenkins configuration files
+  command: mkdir -p {{ jenkins.cli_home }}
+
 - name: Get the jenkins-cli jarfile from the Jenkins server.
   get_url:
     url: "http://{{ jenkins.host }}/jnlpJars/jenkins-cli.jar"
     dest: "{{ jenkins.cli_dest }}"
 
 - include: plugins.yml
+
+- include: jobs.yml

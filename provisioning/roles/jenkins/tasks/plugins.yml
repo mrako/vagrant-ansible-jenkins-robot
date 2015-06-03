@@ -23,7 +23,4 @@
 - name: Install Jenkins plugins.
   command: java -jar {{ jenkins.cli_dest }} -s http://{{ jenkins.host }}/ install-plugin {{ item }} creates=/var/lib/jenkins/plugins/{{ item }}.jpi
   notify: Restart Jenkins
-  with_items:
-    - git
-    - build-monitor-plugin
-    - robot
+  with_items: jenkins.plugins

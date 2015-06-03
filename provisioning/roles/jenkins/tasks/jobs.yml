@@ -1,5 +1,7 @@
 ---
-- name: Create jenkins jobs with xml files
+- name: Copy Jenkins job template to server
+  copy: src=job-example.xml dest={{ jenkins.cli_home }}/{{ jenkins.example_job.xmlfile }} owner=jenkins group=jenkins mode=0644
+
+- name: Create an example jenkins job with xml file
   sudo: yes
-  shell: "java -jar {{ jenkins.cli_dest }} -s http://localhost:8080 create-job {{ item.name }} < {{ jenkins_dest }}/{{ item.xml_name }}"
-  with_items: jenkins_jobs
+  shell: "java -jar {{ jenkins.cli_dest }} -s http://localhost:8080 create-job {{ jenkins.example_job.name }} < {{ jenkins.cli_home }}/{{ jenkins.example_job.xmlfile }}"
