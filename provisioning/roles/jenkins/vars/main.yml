@@ -3,7 +3,3 @@ jenkins:
   connection_delay: 5
   connection_retries: 60
   hostname: localhost
-  plugins:
-    - git
-    - build-monitor-plugin
-    - robot
