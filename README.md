@@ -11,7 +11,7 @@ This is the provisioning library for [Jenkins](https://jenkins-ci.org/) and [Rob
 ## Configuration (Ubuntu 14.04)
 
     wget -q https://www.virtualbox.org/download/oracle_vbox.asc -O- | sudo apt-key add -
-    echo "deb http://download.virtualbox.org/virtualbox/debian trusty contrib" > /etc/apt/sources.list.d/virtualbox.list
+    sudo sh -c 'echo "deb http://download.virtualbox.org/virtualbox/debian trusty contrib" > /etc/apt/sources.list.d/virtualbox.list'
     sudo apt-get update
     sudo apt-get install virtualbox virtualbox-dkms vagrant
 
