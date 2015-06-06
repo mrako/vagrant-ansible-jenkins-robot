@@ -1,0 +1,31 @@
+---
+- name: Install build depends
+  apt: pkg={{ item }} state=latest install_recommends=no
+  with_items:
+  - libcurl4-openssl-dev
+  - libreadline6-dev
+  - libxml2-dev
+  - libxslt1-dev
+  - zlib1g-dev
+  - libc6-dev
+  - libyaml-dev
+  - libssl-dev
+  - libcurl4-openssl-dev
+  - libreadline-dev
+
+- name: Download Ruby
+  get_url: url={{ ruby_url }} dest=/tmp/ruby-{{ ruby_version }}.tar.gz
+
+- name: Extract Ruby
+  command: tar xfz ruby-{{ ruby_version }}.tar.gz creates=ruby-{{ ruby_version }} chdir=/tmp
+
+- name: Install Ruby
+  shell: ./configure && make && make install chdir=/tmp/ruby-{{ ruby_version }} creates=/usr/local/bin/ruby
+
+- name: Create gemrc
+  copy: src=gemrc dest=/home/deploy/.gemrc owner=deploy group=root mode=0644
+
+- name: Install gems
+  command: gem install {{item}}
+  with_items:
+    - bundler

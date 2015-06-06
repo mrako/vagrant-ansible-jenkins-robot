@@ -1,0 +1,2 @@
+ruby_version: 2.1.5
+ruby_url: 'http://ftp.ruby-lang.org/pub/ruby/2.1/ruby-{{ ruby_version }}.tar.gz'
