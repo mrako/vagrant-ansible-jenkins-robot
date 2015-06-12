@@ -1,4 +1,4 @@
-# Trail Provisioning
+# Jenkins + Robot Framework Server
 
 This is the provisioning library for [Jenkins](https://jenkins-ci.org/) and [Robot Framework](http://robotframework.org/)
 
