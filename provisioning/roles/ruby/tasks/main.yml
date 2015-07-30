@@ -21,11 +21,3 @@
 
 - name: Install Ruby
   shell: ./configure && make && make install chdir=/tmp/ruby-{{ ruby_version }} creates=/usr/local/bin/ruby
-
-- name: Create gemrc
-  copy: src=gemrc dest=/home/deploy/.gemrc owner=deploy group=root mode=0644
-
-- name: Install gems
-  command: gem install {{item}}
-  with_items:
-    - bundler

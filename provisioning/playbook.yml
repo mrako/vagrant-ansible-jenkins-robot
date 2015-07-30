@@ -4,6 +4,7 @@
   roles:
   - apt
   - base
+  - security
   - java
   - node
   - ruby

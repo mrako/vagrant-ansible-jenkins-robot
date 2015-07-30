@@ -1,0 +1,32 @@
+# Security
+# ====================================================
+
+# MOSH AND FAIL2BAN
+# ====================================================
+
+- name: Install ufw
+  apt: pkg=ufw state=latest
+
+- name: Install mosh
+  apt: pkg=mosh state=latest
+
+- name: Install fail2ban
+  apt: pkg=fail2ban state=latest
+
+# FIREWALL
+# ====================================================
+
+- name: Add ssh to ufw
+  action: shell ufw allow 22
+
+- name: Add http to ufw
+  action: shell ufw allow 80
+
+- name: Add https to ufw
+  action: shell ufw allow 443
+
+- name: Add tomcat to ufw
+  action: shell ufw allow 8080
+
+- name: Enable ufw
+  action: shell echo 'y' | ufw enable
