@@ -4,9 +4,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.network :forwarded_port, guest: 8080, host: 8888, auto_correct: true
 
-  config.ssh.private_key_path = ["~/.vagrant.d/insecure_private_key", "~/.ssh/id_rsa"]
-  config.ssh.forward_agent = true
-
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", 2048]
   end
